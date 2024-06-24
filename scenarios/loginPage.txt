@@ -1,0 +1,68 @@
+Funcionalidade: Login no site Saucedemo
+
+  Cenário: Acessar a tela de login e validar os elementos
+    Dado que acesso a home do Site
+    Quando clico no link Login
+    Então devo ser direcionado para a tela de Login 
+
+  Cenário: Login com sucesso para o usuário padrão (standard_user)
+    Dado que o usuário acessa a página de login
+    Quando o usuário preenche as credenciais com um usuário padrão
+    E clica no botão de login
+    Então o usuário deve ser redirecionado para a página 'Swag Labs'
+
+  Cenário: Tentativa de login falha para o usuário bloqueado (locked_out_user)
+    Dado que o usuário acessa a página de login
+    Quando o usuário preenche as credenciais com um usuário bloqueado
+    E clica no botão de login
+    Então o usuário deve ver a mensagem de erro: 'Epic sadface: Sorry, this user has been locked out.'
+
+  Cenário: Login com sucesso para o usuário com problemas (problem_user)
+    Dado que o usuário acessa a página de login
+    Quando o usuário preenche as credenciais com um usuário com problemas
+    E clica no botão de login
+    Então o usuário deve ser redirecionado para a página 'Swag Labs'
+
+  Cenário: Login com sucesso para o usuário com falha de desempenho (performance_glitch_user)
+    Dado que o usuário acessa a página de login
+    Quando o usuário preenche as credenciais com um usuário com falha de desempenho
+    E clica no botão de login
+    Então o usuário deve ser redirecionado para a página 'Swag Labs'
+
+  Cenário: Login com sucesso para o usuário com erro (error_user)
+    Dado que o usuário acessa a página de login
+    Quando o usuário preenche as credenciais com um usuário com erro
+    E clica no botão de login
+    Então o usuário deve ser redirecionado para a página 'Swag Labs'
+
+
+  Cenário: Login com sucesso para o usuário visual (visual_user)
+    Dado que o usuário acessa a página de login
+    Quando o usuário preenche as credenciais com um usuário visual
+    E clica no botão de login
+    Então o usuário deve ser redirecionado para a página 'Swag Labs'
+
+  Cenário: Tentativa de login sem preencher o campo de usuário, mas preenchendo o campo de senha
+    Dado que o usuário acessa a página de login
+    Quando o usuário preenche apenas o campo de senha
+    E clica no botão de login
+    Então o usuário deve ver uma mensagem indicando que o campo de usuário é obrigatório
+
+  Cenário: Tentativa de login preenchendo o campo de usuário, mas não preenchendo o campo de senha
+    Dado que o usuário acessa a página de login
+    Quando o usuário preenche apenas o campo de usuário
+    E clica no botão de login
+    Então o usuário deve ver uma mensagem indicando que o campo de senha é obrigatório
+
+  Cenário: Tentativa de login sem preencher nenhum dos campos
+    Dado que o usuário acessa a página de login
+    Quando o usuário não preenche nenhum dos campos
+    E clica no botão de login
+    Então o usuário deve ver mensagens indicando que ambos os campos são obrigatórios
+
+  Cenário: Tentativa de login com um usuário válido, mas senha incorreta
+    Dado que o usuário acessa a página de login
+    Quando o usuário preenche um usuário válido
+    E preenche uma senha incorreta
+    E clica no botão de login
+    Então o usuário deve ver uma mensagem indicando que a combinação de usuário e senha é inválida
